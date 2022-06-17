@@ -3,7 +3,7 @@ module edu.pjatk.tpo.msgappjsm {
     requires javafx.fxml;
 
     requires org.controlsfx.controls;
-    requires validatorfx;
+    requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
 

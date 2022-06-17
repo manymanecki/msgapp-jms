@@ -90,7 +90,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>edu.pjatk.tpo.msgappjsm/edu.pjatk.tpo.msgappjsm.HelloApplication</mainClass>
+                            <mainClass>edu.pjatk.tpo.msgappjsm/edu.pjatk.tpo.msgappjsm.ChatApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

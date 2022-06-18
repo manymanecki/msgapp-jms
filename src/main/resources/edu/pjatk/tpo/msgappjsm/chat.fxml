@@ -15,64 +15,60 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<SplitPane dividerPositions="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: whitesmoke; -fx-background-radius: 0 0 10 10; -fx-border-radius: 0 0 10 10;" stylesheets="@chat.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pjatk.tpo.msgappjsm.ChatController">
-    <AnchorPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="250.0" style="-fx-background-color: whitesmoke; -fx-background-radius: 0 0 10 10; -fx-border-radius: 0 0 10 10;" SplitPane.resizableWithParent="false">
+<SplitPane dividerPositions="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: transparent;" stylesheets="@chat.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pjatk.tpo.msgappjsm.ChatController">
+    <AnchorPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="270.0" style="-fx-background-color: #8D77A8#8D77A8;" SplitPane.resizableWithParent="false">
       <children>
-         <Pane layoutX="20.0" layoutY="14.0" maxHeight="100.0" maxWidth="245.0" minHeight="100.0" minWidth="200.0" prefHeight="100.0" prefWidth="245.0" style="-fx-background-color: white; -fx-border-color: silver; -fx-background-radius: 10 10 10 10; -fx-border-radius: 10 10 10 10;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+         <VBox prefHeight="200.0" prefWidth="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-               <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0">
+               <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="270.0" style="-fx-background-color: #8D77A8#8D77A8;">
                   <children>
-                     <Circle fill="TRANSPARENT" layoutX="50.0" layoutY="50.0" radius="40.0" stroke="SILVER" strokeType="INSIDE" />
+                     <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0">
+                        <children>
+                           <Circle fill="TRANSPARENT" layoutX="50.0" layoutY="50.0" radius="40.0" stroke="SILVER" strokeType="INSIDE" />
+                        </children>
+                     </Pane>
+                     <VBox alignment="TOP_CENTER" layoutX="100.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="145.0">
+                        <children>
+                           <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
+                              <font>
+                                 <Font size="24.0" />
+                              </font>
+                           </Text>
+                           <Text fx:id="usernameText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;&lt;username&gt;&gt;" />
+                           <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#onLogoutButtonClick" style="-fx-background-color: whitesmoke; -fx-border-color: transparent; -fx-border-radius: 0 0 0 0; -fx-background-radius: 0 0 0 0;" text="Logout" textAlignment="CENTER">
+                              <VBox.margin>
+                                 <Insets top="10.0" />
+                              </VBox.margin>
+                           </Button>
+                        </children>
+                        <padding>
+                           <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                        </padding>
+                     </VBox>
                   </children>
                </Pane>
-               <VBox layoutX="100.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="145.0">
-                  <children>
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
-                        <font>
-                           <Font size="24.0" />
-                        </font>
-                     </Text>
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;&lt;username&gt;&gt;" />
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0">
-                        <font>
-                           <Font size="16.0" />
-                        </font>
-                     </Text>
-                     <Text fill="#9a9a9a" strokeType="OUTSIDE" strokeWidth="0.0" text="Logout...">
-                        <cursor>
-                           <Cursor fx:constant="HAND" />
-                        </cursor>
-                     </Text>
-                  </children>
-                  <padding>
-                     <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
-                  </padding>
-               </VBox>
+               <ListView focusTraversable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="245.0" style="-fx-background-color: #8D77A8#8D77A8;" />
+               <Pane prefHeight="40.0" prefWidth="200.0" />
             </children>
-         </Pane>
-         <ListView focusTraversable="false" layoutX="20.0" layoutY="199.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="245.0" style="-fx-background-radius: 10 10 10 10; -fx-border-radius: 10 10 10 10; -fx-border-color: silver;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="115.0" />
+         </VBox>
       </children>
    </AnchorPane>
    <BorderPane>
-      <padding>
-         <Insets bottom="5.0" right="5.0" top="5.0" />
-      </padding>
       <bottom>
-         <HBox alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="533.0">
+         <HBox alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="533.0">
             <children>
-               <TextField prefHeight="40.0" prefWidth="500.0" promptText="Write a message..." style="-fx-background-color: white; -fx-border-color: silver; -fx-background-radius: 10 10 10 10; -fx-border-radius: 10 10 10 10;" HBox.hgrow="ALWAYS">
+               <TextField prefHeight="40.0" prefWidth="500.0" promptText="Write a message..." style="-fx-background-color: #eaeaea;" HBox.hgrow="ALWAYS">
                   <opaqueInsets>
                      <Insets />
                   </opaqueInsets>
                   <HBox.margin>
-                     <Insets right="5.0" />
+                     <Insets />
                   </HBox.margin>
                   <cursor>
                      <Cursor fx:constant="TEXT" />
                   </cursor>
                </TextField>
-               <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: white; -fx-background-radius: 10 10 10 10; -fx-border-radius: 10 10 10 10; -fx-border-color: silver;" text="&gt;" textAlignment="CENTER">
+               <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #eaeaea;" text="&gt;" textAlignment="CENTER">
                   <font>
                      <Font name="System Bold" size="13.0" />
                   </font>
@@ -87,9 +83,9 @@
          </HBox>
       </bottom>
       <center>
-         <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white; -fx-border-color: silver; -fx-background-radius: 10 10 10 10; -fx-border-radius: 10 10 10 10;">
+         <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: whitesmoke;">
             <BorderPane.margin>
-               <Insets bottom="5.0" />
+               <Insets top="50.0" />
             </BorderPane.margin>
             <opaqueInsets>
                <Insets />

@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,12 +19,21 @@ public class ChatController {
     private Button logoutButton;
 
     @FXML
-    protected void onLogoutButtonClick(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("login.fxml")));
+    private Text usernameText;
+
+    @FXML
+    private void onLogoutButtonClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("login.fxml"));
+        Parent root = loader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setResizable(false);
         scene.getWindow().centerOnScreen();
         stage.show();
+    }
+
+    public void setUsernameText(String username){
+        usernameText.setText(username);
     }
 }

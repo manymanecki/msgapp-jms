@@ -7,12 +7,20 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class LoginController {
+
+    @FXML
+    private TextField emailField;
+
+    @FXML
+    private PasswordField passwordField;
 
     @FXML
     private Button loginButton;
@@ -24,11 +32,17 @@ public class LoginController {
     private Button forgotPasswordButton;
 
     @FXML
-    protected void onLoginButtonClick(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("chat.fxml")));
+    private void onLoginButtonClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("chat.fxml"));
+        Parent root = loader.load();
+
+        ChatController chatController = loader.getController();
+        chatController.setUsernameText(emailField.getText());
+
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setResizable(true);
         scene.getWindow().centerOnScreen();
         stage.show();
     }

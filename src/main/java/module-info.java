@@ -6,7 +6,7 @@ module edu.pjatk.tpo.msgappjsm {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+    requires commons.validator;
 
-    opens edu.pjatk.tpo.msgappjsm to javafx.fxml;
     exports edu.pjatk.tpo.msgappjsm;
 }

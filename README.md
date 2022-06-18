@@ -18,6 +18,7 @@ the use of Java technologies such as JMS and JavaFX.
 - BootstrapFX (bootstrapfx-core)
 - Ikonli (ikonli-javafx)
 - JUnit Jupiter (junit-jupiter-api, junit-jupiter-engine)
+- Apache Commons Validator (commons-validator)
 
 ### License
 This project is licensed under MIT license which you can check 

@@ -13,7 +13,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LoginController {
+public class SignUpController {
+
+    @FXML
+    private TextField emailField;
 
     @FXML
     private TextField nameField;
@@ -22,7 +25,7 @@ public class LoginController {
     private PasswordField passwordField;
 
     @FXML
-    private Button loginButton;
+    private PasswordField repeatPasswordField;
 
     @FXML
     private Button signUpButton;
@@ -31,24 +34,11 @@ public class LoginController {
     private Button forgotPasswordButton;
 
     @FXML
-    private void onLoginButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("chat.fxml"));
-        Parent root = loader.load();
-
-        ChatController chatController = loader.getController();
-        chatController.setUsernameText(nameField.getText());
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setResizable(true);
-        scene.getWindow().centerOnScreen();
-        stage.show();
-    }
+    private Button returnButton;
 
     @FXML
-    private void onSignUpButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("signup.fxml"));
+    private void onReturnButtonClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("login.fxml"));
         Parent root = loader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

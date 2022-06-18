@@ -24,7 +24,7 @@
       </VBox>
       <VBox alignment="CENTER" layoutX="100.0" layoutY="130.0" prefHeight="100.0" prefWidth="280.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <children>
-            <TextField fx:id="emailField" alignment="CENTER" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: silver; -fx-border-style: solid none;">
+            <TextField fx:id="nameField" alignment="CENTER" promptText="Name" style="-fx-background-color: transparent; -fx-border-color: silver; -fx-border-style: solid none;">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -52,7 +52,7 @@
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button fx:id="signUpButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #748AB0#748AB0; -fx-border-color: transparent; -fx-background-radius: 0 0 0 0; -fx-border-radius: 0 0 0 0;" text="Sign up" textAlignment="CENTER" textFill="WHITE" />
+            <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#onSignUpButtonClick" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #748AB0#748AB0; -fx-border-color: transparent; -fx-background-radius: 0 0 0 0; -fx-border-radius: 0 0 0 0;" text="Sign up" textAlignment="CENTER" textFill="WHITE" />
             <Button fx:id="forgotPasswordButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #4F5D87#4F5D87; -fx-border-color: transparent; -fx-background-radius: 0 0 0 0; -fx-border-radius: 0 0 0 0;" text="Forgot password" textAlignment="CENTER" textFill="WHITE" />
          </children>
       </VBox>

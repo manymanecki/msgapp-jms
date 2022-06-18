@@ -1,4 +1,12 @@
+* {
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-radius: 10 10 10 10;
+    -fx-border-width: 1;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
 .split-pane-divider {
-    -fx-padding: 5 ;
-    -fx-background-color: white;
+    -fx-padding: 5;
+    -fx-background-color: whitesmoke;
 }

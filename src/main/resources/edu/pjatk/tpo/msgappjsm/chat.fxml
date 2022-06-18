@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<SplitPane dividerPositions="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: whitesmoke; -fx-background-radius: 0 0 10 10; -fx-border-radius: 0 0 10 10;" stylesheets="@chat.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane dividerPositions="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: whitesmoke; -fx-background-radius: 0 0 10 10; -fx-border-radius: 0 0 10 10;" stylesheets="@chat.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pjatk.tpo.msgappjsm.ChatController">
     <AnchorPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="250.0" style="-fx-background-color: whitesmoke; -fx-background-radius: 0 0 10 10; -fx-border-radius: 0 0 10 10;" SplitPane.resizableWithParent="false">
       <children>
          <Pane layoutX="20.0" layoutY="14.0" maxHeight="100.0" maxWidth="245.0" minHeight="100.0" minWidth="200.0" prefHeight="100.0" prefWidth="245.0" style="-fx-background-color: white; -fx-border-color: silver; -fx-background-radius: 10 10 10 10; -fx-border-radius: 10 10 10 10;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">

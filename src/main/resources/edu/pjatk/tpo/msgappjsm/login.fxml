@@ -52,7 +52,7 @@
       </VBox>
       <VBox alignment="TOP_CENTER" layoutX="100.0" layoutY="262.0" prefHeight="150.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #8D77A8#8D77A8; -fx-border-color: transparent; -fx-background-radius: 0 0 0 0; -fx-border-radius: 0 0 0 0;" text="Login" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="loginButton" defaultButton="true" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #8D77A8#8D77A8; -fx-border-color: transparent; -fx-background-radius: 0 0 0 0; -fx-border-radius: 0 0 0 0;" text="Login" textAlignment="CENTER" textFill="WHITE">
                <VBox.margin>
                   <Insets />
                </VBox.margin>

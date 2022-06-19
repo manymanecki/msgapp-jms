@@ -6,53 +6,44 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane dividerPositions="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: transparent;" stylesheets="@chat.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pjatk.tpo.msgappjsm.ChatController">
-    <AnchorPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="270.0" style="-fx-background-color: #8D77A8#8D77A8;" SplitPane.resizableWithParent="false">
-      <children>
-         <VBox prefHeight="200.0" prefWidth="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<SplitPane dividerPositions="0.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #8D77A8#8D77A8 #8D77A8#8D77A8;" stylesheets="@chat.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pjatk.tpo.msgappjsm.ChatController">
+   <BorderPane maxWidth="200.0" prefHeight="200.0" prefWidth="200.0">
+      <center>
+         <ListView focusTraversable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="270.0" style="-fx-background-color: #8D77A8#8D77A8;" BorderPane.alignment="CENTER" />
+      </center>
+      <bottom>
+         <HBox prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-               <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="270.0" style="-fx-background-color: #8D77A8#8D77A8;">
-                  <children>
-                     <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0">
-                        <children>
-                           <Circle fill="TRANSPARENT" layoutX="50.0" layoutY="50.0" radius="40.0" stroke="SILVER" strokeType="INSIDE" />
-                        </children>
-                     </Pane>
-                     <VBox alignment="TOP_CENTER" layoutX="100.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="145.0">
-                        <children>
-                           <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
-                              <font>
-                                 <Font size="24.0" />
-                              </font>
-                           </Text>
-                           <Text fx:id="usernameText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;&lt;username&gt;&gt;" />
-                           <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#onLogoutButtonClick" style="-fx-background-color: whitesmoke; -fx-border-color: transparent; -fx-border-radius: 0 0 0 0; -fx-background-radius: 0 0 0 0;" text="Logout" textAlignment="CENTER">
-                              <VBox.margin>
-                                 <Insets top="10.0" />
-                              </VBox.margin>
-                           </Button>
-                        </children>
-                        <padding>
-                           <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
-                        </padding>
-                     </VBox>
-                  </children>
-               </Pane>
-               <ListView focusTraversable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="245.0" style="-fx-background-color: #8D77A8#8D77A8;" />
-               <Pane prefHeight="40.0" prefWidth="200.0" />
+               <Button fx:id="logoutButton" maxWidth="90.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #6f5e85#6f5e85 #6f5e85#6f5e85; -fx-border-color: transparent; -fx-border-radius: 0 0 0 0; -fx-background-radius: 0 0 0 0;" text="Logout" textAlignment="CENTER" textFill="WHITE" />
+               <Button fx:id="contactsButton" layoutX="10.0" layoutY="10.0" maxWidth="90.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #6f5e85#6f5e85 #6f5e85#6f5e85; -fx-border-color: transparent; -fx-border-radius: 0 0 0 0; -fx-background-radius: 0 0 0 0;" text="Contacts" textAlignment="CENTER" textFill="WHITE" />
+               <Button fx:id="editButton" layoutX="100.0" layoutY="10.0" maxWidth="90.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #6f5e85#6f5e85 #6f5e85#6f5e85; -fx-border-color: transparent; -fx-border-radius: 0 0 0 0; -fx-background-radius: 0 0 0 0;" text="Edit" textAlignment="CENTER" textFill="WHITE" />
             </children>
-         </VBox>
-      </children>
-   </AnchorPane>
+         </HBox>
+      </bottom>
+      <top>
+         <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #6f5e85#6f5e85 #6f5e85#6f5e85 #6f5e85#6f5e85 #6f5e85#6f5e85;" BorderPane.alignment="CENTER">
+            <children>
+               <Circle fill="#ffffff00" radius="25.0" stroke="SILVER" strokeType="INSIDE" strokeWidth="2.0">
+                  <HBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </HBox.margin>
+               </Circle>
+               <Text fx:id="usernameText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;&lt;username&gt;&gt;">
+                  <HBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </HBox.margin>
+               </Text>
+            </children>
+         </HBox>
+      </top>
+   </BorderPane>
    <BorderPane>
       <bottom>
          <HBox alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="533.0">
@@ -85,7 +76,7 @@
       <center>
          <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: whitesmoke;">
             <BorderPane.margin>
-               <Insets top="50.0" />
+               <Insets />
             </BorderPane.margin>
             <opaqueInsets>
                <Insets />
@@ -95,6 +86,26 @@
             </padding>
          </VBox>
       </center>
+      <top>
+         <BorderPane prefHeight="60.0" prefWidth="518.0" style="-fx-background-color: #eaeaea;" BorderPane.alignment="CENTER">
+            <left>
+               <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <children>
+                     <Circle fill="TRANSPARENT" radius="25.0" stroke="#757575" strokeType="INSIDE" strokeWidth="2.0">
+                        <HBox.margin>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </HBox.margin>
+                     </Circle>
+                     <Text fill="#757575" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;&lt;username&gt;&gt;">
+                        <HBox.margin>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </HBox.margin>
+                     </Text>
+                  </children>
+               </HBox>
+            </left>
+         </BorderPane>
+      </top>
    </BorderPane>
    <cursor>
       <Cursor fx:constant="DEFAULT" />

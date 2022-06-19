@@ -19,6 +19,12 @@ public class ChatController {
     private Button logoutButton;
 
     @FXML
+    private Button contactsButton;
+
+    @FXML
+    private Button editButton;
+
+    @FXML
     private Text usernameText;
 
     @FXML
@@ -28,7 +34,16 @@ public class ChatController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+
+        // todo
+        // Troche brudna zmiana wielkosci okna poniewaz po wylogowaniu
+        // ekran logowania byl za duzy. Sprawdzic pozniej czy jest lepszy
+        // sposob na zmiane tego.
+        stage.setMinHeight(0);
+        stage.setMinWidth(0);
+        stage.sizeToScene();
         stage.setResizable(false);
+
         scene.getWindow().centerOnScreen();
         stage.show();
     }

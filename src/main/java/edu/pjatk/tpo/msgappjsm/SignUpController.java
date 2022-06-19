@@ -69,14 +69,20 @@ public class SignUpController {
         }
     }
 
+    // todo
+    // Ulepszyc walidacje o pewne edge case'y takie jak:
+    // - brak pola uzytkownika
+    // - email juz istnieje w bazie
+    // -
+
     private boolean isValidSignUp(){
         String errorMessage = "";
         boolean result = true;
-        if (!(isValidEmailAdress(emailField.getText()) || emailField.getText()=="admin@admin.pl")){
+        if (!(isValidEmailAdress(emailField.getText()) || Objects.equals(emailField.getText(), "admin@admin.pl"))){
             result = false;
             errorMessage=errorMessage+"Invalid email address\n";
         }
-        if (!(isValidPassword(passwordField.getText())) || passwordField.getText()=="admin"){
+        if (!(isValidPassword(passwordField.getText())) || Objects.equals(passwordField.getText(), "admin")){
             result = false;
             errorMessage=errorMessage+"Password is too short\n";
         }else{
@@ -85,7 +91,7 @@ public class SignUpController {
                 errorMessage=errorMessage+"Passwords don't match\n";
             }
         }
-        if (!(isValidUsername(nameField.getText())) || nameField.getText()=="admin"){
+        if (!(isValidUsername(nameField.getText())) || Objects.equals(nameField.getText(), "admin")){
             result = false;
             errorMessage=errorMessage+"Username with that name exists\n";
         }

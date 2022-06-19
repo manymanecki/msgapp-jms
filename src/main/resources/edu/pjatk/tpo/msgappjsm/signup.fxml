@@ -58,16 +58,12 @@
                   <Insets left="20.0" right="20.0" />
                </VBox.margin>
             </PasswordField>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="By signing up, you agree to the Legal Terms and Conditions" textAlignment="CENTER" wrappingWidth="200.0">
-               <VBox.margin>
-                  <Insets top="40.0" />
-               </VBox.margin>
-            </Text>
+            <Text fx:id="errorText" fill="#cd0000" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="250.0" />
             </children>
         </VBox>
         <VBox alignment="TOP_CENTER" layoutX="100.0" layoutY="262.0" prefHeight="100.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <children>
-                <Button fx:id="signUpButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #748AB0#748AB0; -fx-border-color: transparent; -fx-background-radius: 0 0 0 0; -fx-border-radius: 0 0 0 0;" text="Sign up" textAlignment="CENTER" textFill="WHITE" />
+                <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#onSignUpButtonClick" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #748AB0#748AB0; -fx-border-color: transparent; -fx-background-radius: 0 0 0 0; -fx-border-radius: 0 0 0 0;" text="Sign up" textAlignment="CENTER" textFill="WHITE" />
                 <Button fx:id="forgotPasswordButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #4F5D87#4F5D87; -fx-border-color: transparent; -fx-background-radius: 0 0 0 0; -fx-border-radius: 0 0 0 0;" text="Forgot password" textAlignment="CENTER" textFill="WHITE" />
             </children>
         </VBox>

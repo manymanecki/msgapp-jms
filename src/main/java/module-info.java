@@ -8,5 +8,6 @@ module edu.pjatk.tpo.msgappjsm {
     requires org.kordamp.bootstrapfx.core;
     requires commons.validator;
 
+    opens edu.pjatk.tpo.msgappjsm to javafx.fxml;
     exports edu.pjatk.tpo.msgappjsm;
 }

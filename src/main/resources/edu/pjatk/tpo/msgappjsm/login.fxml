@@ -20,6 +20,11 @@
                </font>
             </Label>
             <Label text="Please log-in with your creditentials" />
+            <Label fx:id="optionalLabel" layoutX="54.0" layoutY="73.0" textFill="#cd0000">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
          </children>
       </VBox>
       <VBox alignment="CENTER" layoutX="100.0" layoutY="130.0" prefHeight="100.0" prefWidth="280.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">

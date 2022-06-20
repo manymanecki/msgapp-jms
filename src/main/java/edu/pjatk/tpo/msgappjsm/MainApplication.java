@@ -1,40 +1,67 @@
 package edu.pjatk.tpo.msgappjsm;
 
 import javafx.application.Application;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 300, 400);
-        scene.getStylesheets().setAll(
-                Objects.requireNonNull(getClass().getResource("login.css")).toExternalForm()
-        );
+        ViewModel viewModel = new ViewModel();
 
-        stage.setTitle("msgapp-jsm - Login screen");
+        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("login.fxml"));
+        Parent login = loginLoader.load();
+        LoginController loginController = loginLoader.getController();
+        loginController.setViewModel(viewModel);
+
+        FXMLLoader chatLoader = new FXMLLoader(getClass().getResource("chat.fxml"));
+        Parent chat = chatLoader.load();
+        ChatController chatController = chatLoader.getController();
+        chatController.setViewModel(viewModel);
+
+        FXMLLoader signUpLoader = new FXMLLoader(getClass().getResource("signup.fxml"));
+        Parent signUp = signUpLoader.load();
+        SignUpController signUpController = signUpLoader.getController();
+        signUpController.setViewModel(viewModel);
+
+        Scene scene = new Scene(login);
+        scene.rootProperty().bind(Bindings.createObjectBinding(() -> {
+            if (viewModel.getCurrentView() == ViewModel.View.LOGIN) {
+                System.out.println("ViewModel.View.LOGIN");
+                stage.setTitle("msgapp-jsm - Login");
+                initializeScreen(stage, false, 300, 430);
+                return login;
+            } else if (viewModel.getCurrentView() == ViewModel.View.CHAT) {
+                System.out.println("ViewModel.View.CHAT");
+                stage.setTitle("msgapp-jsm - Chat");
+                initializeScreen(stage, true, 800, 600);
+                return chat;
+            } else if (viewModel.getCurrentView() == ViewModel.View.SIGNUP) {
+                System.out.println("ViewModel.View.SIGNUP");
+                stage.setTitle("msgapp-jsm - Sign-up");
+                initializeScreen(stage, false, 300, 430);
+                return signUp;
+            } else {
+                return null;
+            }
+        }, viewModel.currentViewProperty()));
         stage.setScene(scene);
-        stage.sizeToScene();
-
-        // Transparent background to make rounded corners work
-        scene.setFill(Color.TRANSPARENT);
-        //stage.initStyle(StageStyle.TRANSPARENT);
-
-        // Lock login screen to set dimensions
-        stage.setMinWidth(300);
-        stage.setMinHeight(400);
-        stage.setResizable(false);
-
         stage.show();
     }
 
     public static void main(String[] args) {
         launch();
+    }
+
+    private static void initializeScreen(Stage stage, boolean resizable, double width, double height){
+        stage.setResizable(resizable);
+        stage.setWidth(width);
+        stage.setHeight(height);
+        stage.centerOnScreen();
     }
 }

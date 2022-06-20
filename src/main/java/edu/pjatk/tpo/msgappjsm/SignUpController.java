@@ -2,15 +2,9 @@ package edu.pjatk.tpo.msgappjsm;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import org.apache.commons.validator.routines.EmailValidator;
 
 import java.io.IOException;
@@ -22,6 +16,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class SignUpController {
+
+    private ViewModel viewModel;
 
     @FXML
     private TextField emailField;
@@ -36,27 +32,24 @@ public class SignUpController {
     private PasswordField repeatPasswordField;
 
     @FXML
-    private Button signUpButton;
-
-    @FXML
-    private Button forgotPasswordButton;
-
-    @FXML
-    private Button returnButton;
-
-    @FXML
     private Text errorText;
 
+    public void setViewModel(ViewModel viewModel){
+        this.viewModel = viewModel;
+    }
+
     @FXML
-    private void onReturnButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("login.fxml"));
-        Parent root = loader.load();
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setResizable(false);
-        scene.getWindow().centerOnScreen();
-        stage.show();
+    private void onReturnButtonClick(ActionEvent event) {
+//        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("login.fxml"));
+//        Parent root = loader.load();
+//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.setResizable(false);
+//        scene.getWindow().centerOnScreen();
+//        stage.show();
+        viewModel.setCurrentView(ViewModel.View.LOGIN);
+        errorText.setText("");
     }
 
     @FXML
@@ -78,7 +71,7 @@ public class SignUpController {
     private boolean isValidSignUp(){
         String errorMessage = "";
         boolean result = true;
-        if (!(isValidEmailAdress(emailField.getText()) || Objects.equals(emailField.getText(), "admin@admin.pl"))){
+        if (!(isValidEmailAddress(emailField.getText()) || Objects.equals(emailField.getText(), "admin@admin.pl"))){
             result = false;
             errorMessage=errorMessage+"Invalid email address\n";
         }
@@ -99,7 +92,7 @@ public class SignUpController {
         return result;
     }
 
-    private static boolean isValidEmailAdress(String email){
+    private static boolean isValidEmailAddress(String email){
         return EmailValidator.getInstance().isValid(email);
     }
 

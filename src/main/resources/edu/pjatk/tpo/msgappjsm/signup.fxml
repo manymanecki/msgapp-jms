@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -63,10 +64,22 @@
         </VBox>
         <VBox alignment="TOP_CENTER" layoutX="100.0" layoutY="262.0" prefHeight="100.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <children>
-                <Button fx:id="signUpButton" defaultButton="true" mnemonicParsing="false" onAction="#onSignUpButtonClick" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #748AB0#748AB0; -fx-border-color: transparent; -fx-background-radius: 0 0 0 0; -fx-border-radius: 0 0 0 0;" text="Sign up" textAlignment="CENTER" textFill="WHITE" />
-                <Button fx:id="forgotPasswordButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #4F5D87#4F5D87; -fx-border-color: transparent; -fx-background-radius: 0 0 0 0; -fx-border-radius: 0 0 0 0;" text="Forgot password" textAlignment="CENTER" textFill="WHITE" />
+                <Button defaultButton="true" mnemonicParsing="false" onAction="#onSignUpButtonClick" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #748AB0#748AB0; -fx-border-color: transparent; -fx-background-radius: 0 0 0 0; -fx-border-radius: 0 0 0 0;" text="Sign up" textAlignment="CENTER" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow height="91.75" radius="22.4375" width="0.0" />
+               </effect></Button>
+                <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #4F5D87#4F5D87; -fx-border-color: transparent; -fx-background-radius: 0 0 0 0; -fx-border-radius: 0 0 0 0;" text="Forgot password" textAlignment="CENTER" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             </children>
         </VBox>
-      <Button fx:id="returnButton" mnemonicParsing="false" onAction="#onReturnButtonClick" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="&lt;" textAlignment="CENTER" />
+      <Button mnemonicParsing="false" onAction="#onReturnButtonClick" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="&lt;" textAlignment="CENTER">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
     </children>
 </AnchorPane>

@@ -40,14 +40,6 @@ public class SignUpController {
 
     @FXML
     private void onReturnButtonClick(ActionEvent event) {
-//        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("login.fxml"));
-//        Parent root = loader.load();
-//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        Scene scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.setResizable(false);
-//        scene.getWindow().centerOnScreen();
-//        stage.show();
         viewModel.setCurrentView(ViewModel.View.LOGIN);
         errorText.setText("");
     }

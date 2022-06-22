@@ -13,6 +13,8 @@ import java.util.Objects;
 
 public class LoginController {
 
+    private ChatModel chatModel;
+
     private ViewModel viewModel;
 
     @FXML
@@ -28,24 +30,17 @@ public class LoginController {
         this.viewModel = viewModel;
     }
 
+    public void setUserModel(ChatModel chatModel){ this.chatModel = chatModel; }
+
     @FXML
     private void onLoginButtonClick(ActionEvent event) {
         if(isValidLogin(nameField.getText(), passwordField.getText())){
-//            FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("chat.fxml"));
-//            Parent root = loader.load();
-//            ChatController chatController = loader.getController();
-//            chatController.setUsernameText(nameField.getText());
-//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//            Scene scene = new Scene(root);
-//            stage.setScene(scene);
-//            stage.setResizable(true);
-//            stage.setMinHeight(600);
-//            stage.setMinWidth(800);
-//            scene.getWindow().centerOnScreen();
-//            stage.show();
+            System.out.println("Username: "+nameField.getText());
+            chatModel.setUsername(nameField.getText());
+            chatModel.receiveMessage();
+            viewModel.setCurrentView(ViewModel.View.CHAT);
             nameField.clear();
             passwordField.clear();
-            viewModel.setCurrentView(ViewModel.View.CHAT);
         }else{
             optionalLabel.setText("Invalid creditentials");
         }
@@ -53,14 +48,6 @@ public class LoginController {
 
     @FXML
     private void onSignUpButtonClick(ActionEvent event) throws IOException {
-//        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("signup.fxml"));
-//        Parent root = loader.load();
-//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        Scene scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.setResizable(false);
-//        scene.getWindow().centerOnScreen();
-//        stage.show();
         viewModel.setCurrentView(ViewModel.View.SIGNUP);
     }
 

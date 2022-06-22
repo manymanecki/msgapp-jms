@@ -13,16 +13,19 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         ViewModel viewModel = new ViewModel();
-
+        ChatModel chatModel = new ChatModel()
+;
         FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("login.fxml"));
         Parent login = loginLoader.load();
         LoginController loginController = loginLoader.getController();
         loginController.setViewModel(viewModel);
+        loginController.setUserModel(chatModel);
 
         FXMLLoader chatLoader = new FXMLLoader(getClass().getResource("chat.fxml"));
         Parent chat = chatLoader.load();
         ChatController chatController = chatLoader.getController();
         chatController.setViewModel(viewModel);
+        chatController.setUserModel(chatModel);
 
         FXMLLoader signUpLoader = new FXMLLoader(getClass().getResource("signup.fxml"));
         Parent signUp = signUpLoader.load();
@@ -40,6 +43,7 @@ public class MainApplication extends Application {
                 System.out.println("ViewModel.View.CHAT");
                 stage.setTitle("msgapp-jsm - Chat");
                 initializeScreen(stage, true, 800, 600);
+                chatController.setUsernameText();
                 return chat;
             } else if (viewModel.getCurrentView() == ViewModel.View.SIGNUP) {
                 System.out.println("ViewModel.View.SIGNUP");

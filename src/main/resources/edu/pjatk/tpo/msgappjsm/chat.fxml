@@ -58,7 +58,7 @@
       <bottom>
          <HBox alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="533.0">
             <children>
-               <TextField prefHeight="40.0" prefWidth="500.0" promptText="Write a message..." style="-fx-background-color: #eaeaea; -fx-border-radius: 0 0 0 0; -fx-background-radius: 0 0 0 0;" HBox.hgrow="ALWAYS">
+               <TextField fx:id="textField" prefHeight="40.0" prefWidth="500.0" promptText="Write a message..." style="-fx-background-color: #eaeaea; -fx-border-radius: 0 0 0 0; -fx-background-radius: 0 0 0 0;" HBox.hgrow="ALWAYS">
                   <opaqueInsets>
                      <Insets />
                   </opaqueInsets>
@@ -69,7 +69,7 @@
                      <Cursor fx:constant="TEXT" />
                   </cursor>
                </TextField>
-               <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #eaeaea; -fx-background-radius: 0; -fx-border-radius: 0;" text="&gt;" textAlignment="CENTER">
+               <Button defaultButton="true" mnemonicParsing="false" onAction="#onSendButtonClick" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: #eaeaea; -fx-background-radius: 0; -fx-border-radius: 0;" text="&gt;" textAlignment="CENTER">
                   <font>
                      <Font name="System Bold" size="13.0" />
                   </font>
@@ -154,22 +154,13 @@
       </center>
       <top>
          <BorderPane prefHeight="60.0" prefWidth="518.0" style="-fx-background-color: #eaeaea;" BorderPane.alignment="CENTER">
-            <left>
-               <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                  <children>
-                     <Circle fill="TRANSPARENT" radius="25.0" stroke="#757575" strokeType="INSIDE" strokeWidth="2.0">
-                        <HBox.margin>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </HBox.margin>
-                     </Circle>
-                     <Text fill="#757575" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;&lt;username&gt;&gt;">
-                        <HBox.margin>
-                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                        </HBox.margin>
-                     </Text>
-                  </children>
-               </HBox>
-            </left>
+            <center>
+               <TextField fx:id="messageToField" promptText="Message to..." style="-fx-background-color: whitesmoke; -fx-background-radius: 0; -fx-border-radius: 0;" BorderPane.alignment="CENTER">
+                  <BorderPane.margin>
+                     <Insets bottom="5.0" left="100.0" right="100.0" top="5.0" />
+                  </BorderPane.margin>
+               </TextField>
+            </center>
          </BorderPane>
       </top>
    </BorderPane>

@@ -1,0 +1,31 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="WebApplicationExploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/WebApplicationExploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.4" />
+          <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:mac:18.0.1" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
+          <element id="library" level="project" name="Maven: commons-digester:commons-digester:2.1" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="Maven: commons-validator:commons-validator:1.7" />
+          <element id="library" level="project" name="Maven: javax.jms:javax.jms-api:2.0.1" />
+          <element id="library" level="project" name="Maven: net.synedra:validatorfx:0.3.1" />
+          <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-jms_1.1_spec:1.1.1" />
+          <element id="library" level="project" name="Maven: org.controlsfx:controlsfx:11.1.1" />
+          <element id="library" level="project" name="Maven: org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0" />
+          <element id="library" level="project" name="Maven: org.kordamp.ikonli:ikonli-core:12.3.1" />
+          <element id="library" level="project" name="Maven: org.kordamp.ikonli:ikonli-javafx:12.3.1" />
+          <element id="library" level="project" name="Maven: org.openjfx:javafx-base:18.0.1" />
+          <element id="library" level="project" name="Maven: org.openjfx:javafx-base:mac:18.0.1" />
+          <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:18.0.1" />
+          <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:mac:18.0.1" />
+          <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:18.0.1" />
+          <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:mac:18.0.1" />
+          <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:18.0.1" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

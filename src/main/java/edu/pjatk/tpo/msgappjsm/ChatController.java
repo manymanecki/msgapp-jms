@@ -20,7 +20,7 @@ public class ChatController {
     private TextField textField;
 
     @FXML
-    public VBox chatBox;
+    public VBox vboxChat;
 
     @FXML
     private Text usernameText;
@@ -37,7 +37,7 @@ public class ChatController {
     @FXML
     private void onLogoutButtonClick(ActionEvent event) {
         chatModel.stopReceiveMessage();
-        chatBox.getChildren().clear();
+        vboxChat.getChildren().clear();
         viewModel.setCurrentView(ViewModel.View.LOGIN);
         textField.clear();
         messageToField.clear();
@@ -72,7 +72,7 @@ public class ChatController {
         hboxLine.setId("hbox-line");
         hboxLine.setAlignment(Pos.CENTER_RIGHT);
 
-        chatBox.getChildren().add(hboxLine);
+        vboxChat.getChildren().add(hboxLine);
         hboxLine.getChildren().add(sentMessage);
     }
 
@@ -88,7 +88,7 @@ public class ChatController {
 
         textField.setText(message);
 
-        chatBox.getChildren().add(hboxLine);
+        vboxChat.getChildren().add(hboxLine);
         hboxLine.getChildren().add(receivedMessage);
     }
 }

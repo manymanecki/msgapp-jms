@@ -9,6 +9,7 @@ import java.util.Properties;
 
 public class ReceiverProtocol implements MessageListener {
     public ReceiverChatBridge receiverChatBridge;
+    private String username;
     private Queue sendQueue;
     private ConnectionFactory connectionFactory;
     private Connection connection;
@@ -34,6 +35,7 @@ public class ReceiverProtocol implements MessageListener {
 
     public void receive(String username){
         try {
+            this.username = username;
             connection = connectionFactory.createConnection();
             Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
             MessageConsumer messageConsumer = session.createConsumer(sendQueue, "name = '"+username+"'");
@@ -53,7 +55,11 @@ public class ReceiverProtocol implements MessageListener {
     @Override
     public void onMessage(Message message) {
         try {
-            System.out.println("Message received from: " + ((TextMessage)message).getText() + " on " + new Date());
+            System.out.println
+                    (":===[NEW MESSAGE]===:\nReceived on: " + new Date()
+                            + "\nfrom: " + username + "\n"
+                            + ((TextMessage)message).getText()
+                            + "\n:===================:");
             message.acknowledge();
             receiverChatBridge.showMessage(((TextMessage)message).getText());
         } catch (JMSException e) {

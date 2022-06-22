@@ -35,7 +35,7 @@ public class LoginController {
     @FXML
     private void onLoginButtonClick(ActionEvent event) {
         if(isValidLogin(nameField.getText(), passwordField.getText())){
-            System.out.println("User: " + nameField.getText() + " logged in.");
+            System.out.println("User: " + nameField.getText() + " has joined the chatroom, send him a message!\n");
             chatModel.setUsername(nameField.getText());
             chatModel.receiveMessage();
             viewModel.setCurrentView(ViewModel.View.CHAT);

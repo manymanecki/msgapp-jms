@@ -1,19 +1,16 @@
 package edu.pjatk.tpo.msgappjsm;
 
-import javax.jms.*;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import java.util.Properties;
-
 public final class ChatModel {
     private String username;
     SenderProtocol senderProtocol;
     ReceiverProtocol receiverProtocol;
 
-    ChatModel(){
-        senderProtocol = new SenderProtocol();
-        receiverProtocol = new ReceiverProtocol();
+    public void setSenderProtocol(SenderProtocol senderProtocol){
+        this.senderProtocol = senderProtocol;
+    }
+
+    public void setReceiverProtocol(ReceiverProtocol receiverProtocol){
+        this.receiverProtocol = receiverProtocol;
     }
 
     public void setUsername(String username){
@@ -25,14 +22,13 @@ public final class ChatModel {
     }
 
     public void sendMessage(String message, String receiver){
-        senderProtocol.setUsername(username);
         senderProtocol.send(message, receiver);
     }
 
     public void receiveMessage() {
-        receiverProtocol.setUsername(username);
-        receiverProtocol.receive();
+        receiverProtocol.receive(username);
     }
+
 
     public void stopReceiveMessage(){
         receiverProtocol.stop();

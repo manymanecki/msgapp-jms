@@ -7,12 +7,9 @@ import javax.naming.NamingException;
 import java.util.Properties;
 
 public class SenderProtocol {
-    private String username;
     private Queue sendQueue;
-    private Queue receiveQueue;
     private ConnectionFactory connectionFactory;
     private Connection connection;
-    private Session session;
 
     SenderProtocol(){
         Properties properties = new Properties();
@@ -23,7 +20,6 @@ public class SenderProtocol {
         try {
             Context context = new InitialContext(properties);
             sendQueue = (Queue) context.lookup("jms/SendQueue");
-            receiveQueue = (Queue) context.lookup("jms/ReceiveQueue");
             connectionFactory = (ConnectionFactory) context.lookup("jms/RemoteConnectionFactory");
         }catch (NamingException ex) {
             ex.printStackTrace();
@@ -33,7 +29,7 @@ public class SenderProtocol {
     public void send(String message, String receiver){
         try {
             connection = connectionFactory.createConnection();
-            session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+            Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
             TextMessage textMessage = session.createTextMessage(message);
             textMessage.setObjectProperty("name", receiver);
             MessageProducer messageProducer = session.createProducer(sendQueue);
@@ -46,9 +42,5 @@ public class SenderProtocol {
                 connection.close();
             } catch (JMSException ignored) {}
         }
-    }
-
-    public void setUsername(String username){
-        this.username = username;
     }
 }

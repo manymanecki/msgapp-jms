@@ -35,19 +35,20 @@ public class LoginController {
     @FXML
     private void onLoginButtonClick(ActionEvent event) {
         if(isValidLogin(nameField.getText(), passwordField.getText())){
-            System.out.println("Username: "+nameField.getText());
+            System.out.println("User: " + nameField.getText() + " logged in.");
             chatModel.setUsername(nameField.getText());
             chatModel.receiveMessage();
             viewModel.setCurrentView(ViewModel.View.CHAT);
             nameField.clear();
             passwordField.clear();
+            optionalLabel.setText("");
         }else{
             optionalLabel.setText("Invalid creditentials");
         }
     }
 
     @FXML
-    private void onSignUpButtonClick(ActionEvent event) throws IOException {
+    private void onSignUpButtonClick(ActionEvent event) {
         viewModel.setCurrentView(ViewModel.View.SIGNUP);
     }
 

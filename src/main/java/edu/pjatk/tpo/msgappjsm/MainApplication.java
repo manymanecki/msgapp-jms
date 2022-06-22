@@ -13,8 +13,12 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         ViewModel viewModel = new ViewModel();
-        ChatModel chatModel = new ChatModel()
-;
+        ChatModel chatModel = new ChatModel();
+        ReceiverProtocol receiverProtocol = new ReceiverProtocol();
+        SenderProtocol senderProtocol = new SenderProtocol();
+        chatModel.setSenderProtocol(senderProtocol);
+        chatModel.setReceiverProtocol(receiverProtocol);
+
         FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("login.fxml"));
         Parent login = loginLoader.load();
         LoginController loginController = loginLoader.getController();
@@ -32,21 +36,22 @@ public class MainApplication extends Application {
         SignUpController signUpController = signUpLoader.getController();
         signUpController.setViewModel(viewModel);
 
+        ReceiverChatBridge receiverChatBridge = new ReceiverChatBridge();
+        receiverChatBridge.setChatController(chatController);
+        chatModel.receiverProtocol.setReceiverChatBridge(receiverChatBridge);
+
         Scene scene = new Scene(login);
         scene.rootProperty().bind(Bindings.createObjectBinding(() -> {
             if (viewModel.getCurrentView() == ViewModel.View.LOGIN) {
-                System.out.println("ViewModel.View.LOGIN");
                 stage.setTitle("msgapp-jsm - Login");
                 initializeScreen(stage, false, 300, 430);
                 return login;
             } else if (viewModel.getCurrentView() == ViewModel.View.CHAT) {
-                System.out.println("ViewModel.View.CHAT");
                 stage.setTitle("msgapp-jsm - Chat");
                 initializeScreen(stage, true, 800, 600);
                 chatController.setUsernameText();
                 return chat;
             } else if (viewModel.getCurrentView() == ViewModel.View.SIGNUP) {
-                System.out.println("ViewModel.View.SIGNUP");
                 stage.setTitle("msgapp-jsm - Sign-up");
                 initializeScreen(stage, false, 300, 430);
                 return signUp;

@@ -11,7 +11,7 @@ public class SenderProtocol {
     private ConnectionFactory connectionFactory;
     private Connection connection;
 
-    SenderProtocol(){
+    SenderProtocol() {
         Properties properties = new Properties();
         properties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
         properties.put("jboss.naming.client.ejb.context", true);
@@ -21,12 +21,12 @@ public class SenderProtocol {
             Context context = new InitialContext(properties);
             sendQueue = (Queue) context.lookup("jms/SendQueue");
             connectionFactory = (ConnectionFactory) context.lookup("jms/RemoteConnectionFactory");
-        }catch (NamingException ex) {
+        } catch (NamingException ex) {
             ex.printStackTrace();
         }
     }
 
-    public void send(String message, String receiver){
+    public void send(String message, String receiver) {
         try {
             connection = connectionFactory.createConnection();
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
@@ -40,7 +40,8 @@ public class SenderProtocol {
         } finally {
             try {
                 connection.close();
-            } catch (JMSException ignored) {}
+            } catch (JMSException ignored) {
+            }
         }
     }
 }

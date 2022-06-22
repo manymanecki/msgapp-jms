@@ -7,7 +7,7 @@ public class ReceiverChatBridge {
         this.chatController = chatController;
     }
 
-    public void showMessage(String message){
+    public void showMessage(String message) {
         chatController.showReceiverMessage(message);
     }
 }

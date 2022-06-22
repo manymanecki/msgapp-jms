@@ -14,11 +14,7 @@ public class ReceiverProtocol implements MessageListener {
     private ConnectionFactory connectionFactory;
     private Connection connection;
 
-    public void setReceiverChatBridge(ReceiverChatBridge receiverChatBridge) {
-        this.receiverChatBridge = receiverChatBridge;
-    }
-
-    ReceiverProtocol(){
+    ReceiverProtocol() {
         Properties properties = new Properties();
         properties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
         properties.put("jboss.naming.client.ejb.context", true);
@@ -28,17 +24,21 @@ public class ReceiverProtocol implements MessageListener {
             Context context = new InitialContext(properties);
             sendQueue = (Queue) context.lookup("jms/SendQueue");
             connectionFactory = (ConnectionFactory) context.lookup("jms/RemoteConnectionFactory");
-        }catch (NamingException ex) {
+        } catch (NamingException ex) {
             ex.printStackTrace();
         }
     }
 
-    public void receive(String username){
+    public void setReceiverChatBridge(ReceiverChatBridge receiverChatBridge) {
+        this.receiverChatBridge = receiverChatBridge;
+    }
+
+    public void receive(String username) {
         try {
             this.username = username;
             connection = connectionFactory.createConnection();
             Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
-            MessageConsumer messageConsumer = session.createConsumer(sendQueue, "name = '"+username+"'");
+            MessageConsumer messageConsumer = session.createConsumer(sendQueue, "name = '" + username + "'");
             messageConsumer.setMessageListener(this);
             connection.start();
         } catch (JMSException ex) {
@@ -46,22 +46,19 @@ public class ReceiverProtocol implements MessageListener {
         }
     }
 
-    public void stop(){
+    public void stop() {
         try {
             connection.close();
-        } catch (JMSException ignore) {}
+        } catch (JMSException ignore) {
+        }
     }
 
     @Override
     public void onMessage(Message message) {
         try {
-            System.out.println
-                    (":===[NEW MESSAGE]===:\nReceived on: " + new Date()
-                            + "\nfrom: " + username + "\n"
-                            + ((TextMessage)message).getText()
-                            + "\n:===================:");
+            System.out.println(":===[NEW MESSAGE]===:\nReceived on: " + new Date() + "\nfrom: " + username + "\n" + ((TextMessage) message).getText() + "\n:===================:");
             message.acknowledge();
-            receiverChatBridge.showMessage(((TextMessage)message).getText());
+            receiverChatBridge.showMessage(((TextMessage) message).getText());
         } catch (JMSException e) {
             throw new RuntimeException(e);
         }

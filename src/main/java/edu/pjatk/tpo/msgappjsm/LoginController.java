@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -26,15 +27,17 @@ public class LoginController {
     @FXML
     private Label optionalLabel;
 
-    public void setViewModel(ViewModel viewModel){
+    public void setViewModel(ViewModel viewModel) {
         this.viewModel = viewModel;
     }
 
-    public void setUserModel(ChatModel chatModel){ this.chatModel = chatModel; }
+    public void setUserModel(ChatModel chatModel) {
+        this.chatModel = chatModel;
+    }
 
     @FXML
     private void onLoginButtonClick(ActionEvent event) {
-        if(isValidLogin(nameField.getText(), passwordField.getText())){
+        if (isValidLogin(nameField.getText(), passwordField.getText())) {
             System.out.println("User: " + nameField.getText() + " has joined the chatroom, send him a message!\n");
             chatModel.setUsername(nameField.getText());
             chatModel.receiveMessage();
@@ -42,7 +45,7 @@ public class LoginController {
             nameField.clear();
             passwordField.clear();
             optionalLabel.setText("");
-        }else{
+        } else {
             optionalLabel.setText("Invalid creditentials");
         }
     }
@@ -52,18 +55,18 @@ public class LoginController {
         viewModel.setCurrentView(ViewModel.View.SIGNUP);
     }
 
-    private boolean isValidLogin(String username, String password){
+    private boolean isValidLogin(String username, String password) {
         try {
             List<String> lines = Files.readAllLines(Path.of("src/main/resources/edu/pjatk/tpo/msgappjsm/textfiles/creditentials"));
             for (String line : lines) {
                 String[] splitLine = line.split("\\s+");
                 if (Objects.equals(splitLine[1], username)) {
-                    if(Objects.equals(splitLine[2], password)){
+                    if (Objects.equals(splitLine[2], password)) {
                         return true;
                     }
                 }
             }
-        }catch (IOException ex){
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
         return false;

@@ -10,6 +10,17 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MainApplication extends Application {
+    public static void main(String[] args) {
+        launch();
+    }
+
+    private static void initializeScreen(Stage stage, boolean resizable, double width, double height) {
+        stage.setResizable(resizable);
+        stage.setWidth(width);
+        stage.setHeight(height);
+        stage.centerOnScreen();
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
         ViewModel viewModel = new ViewModel();
@@ -61,16 +72,5 @@ public class MainApplication extends Application {
         }, viewModel.currentViewProperty()));
         stage.setScene(scene);
         stage.show();
-    }
-
-    public static void main(String[] args) {
-        launch();
-    }
-
-    private static void initializeScreen(Stage stage, boolean resizable, double width, double height){
-        stage.setResizable(resizable);
-        stage.setWidth(width);
-        stage.setHeight(height);
-        stage.centerOnScreen();
     }
 }

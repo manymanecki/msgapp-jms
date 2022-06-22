@@ -12,74 +12,88 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: whitesmoke;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pjatk.tpo.msgappjsm.SignUpController">
-    <children>
-        <VBox alignment="CENTER" layoutX="100.0" layoutY="130.0" prefHeight="100.0" prefWidth="280.0" spacing="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-            <children>
-            <Label text="Signup">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Label>
-            <TextField fx:id="emailField" alignment="CENTER" layoutX="30.0" layoutY="70.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: silver; -fx-border-style: solid none;">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-               <VBox.margin>
-                  <Insets left="20.0" right="20.0" />
-               </VBox.margin>
-            </TextField>
-                <TextField fx:id="nameField" alignment="CENTER" promptText="Name" style="-fx-background-color: transparent; -fx-border-color: silver; -fx-border-style: solid none;">
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-                    <cursor>
-                        <Cursor fx:constant="TEXT" />
-                    </cursor>
-                    <VBox.margin>
-                        <Insets left="20.0" right="20.0" />
-                    </VBox.margin>
-                </TextField>
-                <PasswordField fx:id="passwordField" alignment="CENTER" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: silver; -fx-border-style: solid none;">
-                    <cursor>
-                        <Cursor fx:constant="TEXT" />
-                    </cursor>
-                    <VBox.margin>
-                        <Insets left="20.0" right="20.0" />
-                    </VBox.margin>
-                </PasswordField>
-            <PasswordField fx:id="repeatPasswordField" alignment="CENTER" layoutX="30.0" layoutY="146.0" promptText="Repeat Password" style="-fx-background-color: transparent; -fx-border-color: silver; -fx-border-style: solid none;">
-               <cursor>
-                  <Cursor fx:constant="TEXT" />
-               </cursor>
-               <VBox.margin>
-                  <Insets left="20.0" right="20.0" />
-               </VBox.margin>
-            </PasswordField>
-            <Text fx:id="errorText" fill="#cd0000" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="250.0" />
-            </children>
-        </VBox>
-        <VBox alignment="TOP_CENTER" layoutX="100.0" layoutY="262.0" prefHeight="100.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-            <children>
-                <Button defaultButton="true" mnemonicParsing="false" onAction="#onSignUpButtonClick" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #748AB0#748AB0; -fx-border-color: transparent; -fx-background-radius: 0 0 0 0; -fx-border-radius: 0 0 0 0;" text="Sign up" textAlignment="CENTER" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <DropShadow height="91.75" radius="22.4375" width="0.0" />
-               </effect></Button>
-                <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #4F5D87#4F5D87; -fx-border-color: transparent; -fx-background-radius: 0 0 0 0; -fx-border-radius: 0 0 0 0;" text="Forgot password" textAlignment="CENTER" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            </children>
-        </VBox>
-      <Button mnemonicParsing="false" onAction="#onReturnButtonClick" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="&lt;" textAlignment="CENTER">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-    </children>
+<AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: whitesmoke;"
+            xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.pjatk.tpo.msgappjsm.SignUpController">
+    <VBox alignment="CENTER" layoutX="100.0" layoutY="130.0" prefHeight="100.0" prefWidth="280.0" spacing="10.0"
+          AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <Label text="Signup">
+            <font>
+                <Font size="40.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="emailField" alignment="CENTER" layoutX="30.0" layoutY="70.0" promptText="Email"
+                   style="-fx-background-color: transparent; -fx-border-color: silver; -fx-border-style: solid none;">
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+            <cursor>
+                <Cursor fx:constant="TEXT"/>
+            </cursor>
+            <VBox.margin>
+                <Insets left="20.0" right="20.0"/>
+            </VBox.margin>
+        </TextField>
+        <TextField fx:id="nameField" alignment="CENTER" promptText="Name"
+                   style="-fx-background-color: transparent; -fx-border-color: silver; -fx-border-style: solid none;">
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+            <cursor>
+                <Cursor fx:constant="TEXT"/>
+            </cursor>
+            <VBox.margin>
+                <Insets left="20.0" right="20.0"/>
+            </VBox.margin>
+        </TextField>
+        <PasswordField fx:id="passwordField" alignment="CENTER" promptText="Password"
+                       style="-fx-background-color: transparent; -fx-border-color: silver; -fx-border-style: solid none;">
+            <cursor>
+                <Cursor fx:constant="TEXT"/>
+            </cursor>
+            <VBox.margin>
+                <Insets left="20.0" right="20.0"/>
+            </VBox.margin>
+        </PasswordField>
+        <PasswordField fx:id="repeatPasswordField" alignment="CENTER" layoutX="30.0" layoutY="146.0"
+                       promptText="Repeat Password"
+                       style="-fx-background-color: transparent; -fx-border-color: silver; -fx-border-style: solid none;">
+            <cursor>
+                <Cursor fx:constant="TEXT"/>
+            </cursor>
+            <VBox.margin>
+                <Insets left="20.0" right="20.0"/>
+            </VBox.margin>
+        </PasswordField>
+        <Text fx:id="errorText" fill="#cd0000" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER"
+              wrappingWidth="250.0"/>
+    </VBox>
+    <VBox alignment="TOP_CENTER" layoutX="100.0" layoutY="262.0" prefHeight="100.0" prefWidth="300.0"
+          AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <Button defaultButton="true" mnemonicParsing="false" onAction="#onSignUpButtonClick" prefHeight="50.0"
+                prefWidth="300.0"
+                style="-fx-background-color: #748AB0#748AB0; -fx-border-color: transparent; -fx-background-radius: 0 0 0 0; -fx-border-radius: 0 0 0 0;"
+                text="Sign up" textAlignment="CENTER" textFill="WHITE">
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+            <effect>
+                <DropShadow height="91.75" radius="22.4375" width="0.0"/>
+            </effect>
+        </Button>
+        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0"
+                style="-fx-background-color: #4F5D87#4F5D87; -fx-border-color: transparent; -fx-background-radius: 0 0 0 0; -fx-border-radius: 0 0 0 0;"
+                text="Forgot password" textAlignment="CENTER" textFill="WHITE">
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+    </VBox>
+    <Button mnemonicParsing="false" onAction="#onReturnButtonClick"
+            style="-fx-background-color: transparent; -fx-border-color: transparent;" text="&lt;"
+            textAlignment="CENTER">
+        <cursor>
+          <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
 </AnchorPane>

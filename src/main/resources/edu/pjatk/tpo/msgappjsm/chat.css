@@ -4,11 +4,6 @@
     -fx-faint-focus-color: transparent;
 }
 
-.split-pane-divider {
-    -fx-padding: 5;
-    -fx-background-color: #eaeaea;
-}
-
 #sent-message {
     -fx-background-color:  #8D77A8;
     -fx-background-size: 200;
@@ -33,4 +28,9 @@
     -fx-padding: 10px;
     -fx-border-insets: 10px;
     -fx-background-insets: 10px;
+}
+
+.split-pane-divider {
+    -fx-background-color: "#eaeaea";
+    -fx-border-color: "transparent";
 }
